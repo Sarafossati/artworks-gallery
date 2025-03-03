@@ -1,0 +1,94 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/typography.scss";
+
+// DESKTOP SECTION
+.search {
+  position: relative;
+  width: 12.5rem;
+  border: none;
+
+  &__icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+
+  &__label {
+    @include label-large(false, var(--color-primary-950));
+  }
+
+  :focus-within {
+    border: 1px solid var(--color-natural-950);
+    border-radius: 10px;
+  }
+
+  ::placeholder {
+    color: var(--color-primary-950);
+  }
+  input {
+    padding-left: 35px;
+    border-radius: 10px;
+    height: 2.5rem;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: var(--color-natural-01);
+    &:hover {
+      background-color: var(--color-natural-100);
+      cursor: pointer;
+    }
+    &:focus {
+      border: 1px solid var(--color-natural-950);
+    }
+  }
+}
+
+ // MOBILE SECTION
+ .search--mobile {
+  position: relative;
+  border: none;
+
+  .search__icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+
+  .search__label {
+    @include label-large(false, var(--color-primary-950));
+  }
+
+  :focus-within {
+    border: 1px solid var(--color-natural-950);
+    border-radius: 10px;
+  }
+
+  ::placeholder {
+    color: var(--color-primary-950);
+  }
+  input {
+    width: -webkit-fill-available;
+    padding-left: 35px;
+    border-radius: 10px;
+    height: 2.5rem;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: var(--color-natural-01);
+    &:hover {
+      background-color: var(--color-natural-100);
+      cursor: pointer;
+    }
+    &:focus {
+      border: 1px solid var(--color-natural-950);
+    }
+  }
+}

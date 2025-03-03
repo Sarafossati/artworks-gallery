@@ -1,0 +1,49 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/typography.scss";
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    border-radius: 0 0 0.75rem 0.75rem;
+    background-color: var(--color-natural-50);
+    border: 1px solid var(--color-natural-200);
+    height: 3.875rem;
+    
+    &__buttons {
+      padding: 0 1.5rem;
+      border: none;
+      cursor: pointer;
+      color: var(--color-primary-950);
+      background-color: var(--color-natural-50);
+      display: flex;
+      align-items: center;
+      span {
+        @include label-medium();
+      }
+    }
+  
+    &__pages {
+      display: flex;
+      gap: 0.5rem;
+      button {
+        cursor: pointer;
+        background-color: var(--color-natural-50);
+        border: none;
+        span {
+          @include label-medium();
+        }
+      }
+    }
+  
+    button.active {
+      font-weight: bold;
+    }
+    
+     button:disabled {
+      cursor: not-allowed;
+      color: var(--color-natural-400);
+    }
+    
+  }

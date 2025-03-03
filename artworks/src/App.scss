@@ -1,0 +1,11 @@
+@import './styles/colors.scss';
+
+html,
+body,
+#root {
+  background-color: var(--color-primary-50);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+

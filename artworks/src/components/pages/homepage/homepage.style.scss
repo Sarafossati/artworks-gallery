@@ -1,0 +1,42 @@
+@import "../../../styles/typography.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+
+  // DESKTOP SECTION
+  .page-content {
+    width: 1004px;
+
+    &__title {
+      @include headline-medium();
+    }
+
+    &__filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  // MOBILE SECTION
+  .page-content--mobile {
+    padding: 1.5rem 1rem;
+
+    .page-content__title {
+      @include headline-medium();
+    }
+
+    .page-content__filters {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      align-items: stretch
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/typography.scss";
+
+.table {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid var(--color-natural-200);
+  background-color: var(--color-natural-white);
+
+  tr,
+  th,
+  td {
+    height: 57px;
+    border-bottom: 1px solid var(--color-natural-50);
+    td:first-child {
+      padding-left: 1.5rem;
+      width: 80vw;
+    }
+    td:last-child {
+      padding-right: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover {
+      background-color: var(--color-natural-50);
+      cursor: pointer;
+    }
+  }
+
+  &__chevron {
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+    cursor: pointer;
+  }
+}

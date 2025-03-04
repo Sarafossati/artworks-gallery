@@ -5,18 +5,25 @@ import Table from "../../shared/table/table.component";
 import { IArtifactsResponse } from "../../shared/table/table.interface";
 import { useMediaQuery } from "react-responsive";
 import { pageClasses } from "../../utils/classes.utils";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = (): JSX.Element => {
-  const isBigScreen = useMediaQuery({ query: "(min-width: 1824px)" });
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  });
   const [artifacts, setArtifacts] = useState<IArtifactsResponse[]>([]);
   const [artifactRes, setArtifactRes] = useState<IArtifactsResponse[]>([]);
 
-  const getData = async () => {
+  const navigate = useNavigate();
+
+  const getArtworks = async () => {
     try {
       const response = await fetch("https://api.artic.edu/api/v1/artworks");
-      if (!response.ok) throw new Error("Errore nel caricamento dei dati");
+      if (!response.ok)
+        throw new Error("Error during data loading. Please refresh");
       const result = await response.json();
+
+      if (!result.data) throw new Error("No data. Please refresh");
       const data = result.data.map((artifact: any) => ({
         id: artifact.id,
         title: artifact.title,
@@ -24,12 +31,14 @@ const Homepage = (): JSX.Element => {
       setArtifacts(data);
       setArtifactRes(data);
     } catch (err) {
-      console.log("ERRORE");
+      console.error("Error:", err);
+      setArtifacts([])
+      setArtifactRes([]);
     }
   };
 
   useEffect(() => {
-    getData();
+    getArtworks();
   }, []);
 
   const handleSearch = (searchedText: string) => {
@@ -43,9 +52,13 @@ const Homepage = (): JSX.Element => {
     }
   };
 
+  const handleRowClick = (id: number) => {
+    navigate(`/artwork/${id}`);
+  };
+
   return (
     <div className="container">
-      <div className={pageClasses("page-content", isBigScreen)}>
+      <div className={pageClasses("page-content", isDesktopOrLaptop)}>
         <p className="page-content__title">Artworks</p>
         <div className="page-content__filters">
           <p>List of Artworks</p>
@@ -53,7 +66,7 @@ const Homepage = (): JSX.Element => {
         </div>
         <Table
           data={artifacts}
-          handleArrowClick={(id) => console.log(id)}
+          handleArrowClick={handleRowClick}
           hasPagination
         />
       </div>

@@ -1,0 +1,43 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+// DESKTOP SECTION
+.text-box {
+    padding: 1rem;
+    background-color: var(--color-primary-50);
+    max-width: 11rem;
+    width: 100%;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__title {
+        :first-child {
+         @include label-small(false, var(--color-primary-950))   
+        }
+        :last-child {
+            @include title-medium(false, var(--color-primary-950));
+            font-weight: bold; 
+           }
+    }
+}
+
+// MOBILE SECTION
+.text-box--mobile {
+    padding: 1rem;
+    background-color: var(--color-primary-50);
+    width: 100%;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__title {
+        :first-child {
+         @include label-small(false, var(--color-primary-950))   
+        }
+        :last-child {
+            @include title-medium(false, var(--color-primary-950));
+            font-weight: bold; 
+           }
+    }
+}

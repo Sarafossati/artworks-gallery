@@ -26,6 +26,10 @@
       background-color: var(--color-natural-50);
       cursor: pointer;
     }
+
+    td {
+      color: var(--color-primary-950)
+    }
   }
 
   &__chevron {

@@ -1,4 +1,4 @@
-export const pageClasses = (classes: string, isBigScreen: boolean): string => {
-    if (isBigScreen) return classes;
+export const pageClasses = (classes: string, isDesktop: boolean): string => {
+    if (isDesktop) return classes;
     return `${classes}--mobile`;
   };

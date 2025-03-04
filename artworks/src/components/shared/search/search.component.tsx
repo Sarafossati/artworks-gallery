@@ -5,12 +5,13 @@ import { useMediaQuery } from "react-responsive";
 import { pageClasses } from "../../utils/classes.utils";
 
 const Search = (props: ISearchProps) => {
-  const isBigScreen = useMediaQuery({ query: "(min-width: 1824px)" });
-  
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  })  
   const { value, onChange, placeholder } = props;
 
   return (
-    <div className={pageClasses("search", isBigScreen)}>
+    <div className={pageClasses("search", isDesktopOrLaptop)}>
       <label className="search__label"></label>
       <SearchIcon className="search__icon" />
       <input

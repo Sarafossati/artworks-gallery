@@ -1,6 +1,13 @@
-$font-family-primary: "SF Pro Text", "SF Pro Display", -apple-system,
+@font-face {
+  font-family: 'SF Pro';
+  src: url('../components/utils/fonts/SF-Pro.ttf') format('truetype'), url('../components/utils/fonts/SF-Pro-Display-Medium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-family-primary: "SF Pro", "SF Pro Display Medium", 'Poppins',
   BlinkMacSystemFont, sans-serif;
-$font-family-secondary: "SF Mono", monospace;
+  $font-family-secondary: 'Roboto Mono', monospace;
 
 $letter-spacing: 0.5px;
 

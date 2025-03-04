@@ -1,4 +1,5 @@
 @import "../../../styles/typography.scss";
+@import "../../../styles/colors.scss";
 
 .container {
   display: flex;
@@ -12,7 +13,8 @@
     width: 1004px;
 
     &__title {
-      @include headline-medium();
+      @include headline-medium(false, var(--color-primary-950));
+      margin-bottom: 1.5rem;
     }
 
     &__filters {
@@ -20,6 +22,11 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 0.5rem;
+      font-weight: bold;
+      p {
+        margin-bottom: 1rem;
+        color: var(--color-primary-950)
+      }
     }
   }
 
@@ -28,7 +35,7 @@
     padding: 1.5rem 1rem;
 
     .page-content__title {
-      @include headline-medium();
+      @include headline-medium(false, var(--color-primary-950));
     }
 
     .page-content__filters {
@@ -36,7 +43,10 @@
       flex-direction: column;
       align-items: flex-start;
       margin-bottom: 0.5rem;
-      align-items: stretch
+      align-items: stretch;
+      p {
+        color: var(--color-primary-950)
+      }
     }
   }
 }
